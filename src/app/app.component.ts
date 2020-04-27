@@ -3,13 +3,19 @@ import {Component} from '@angular/core';
 @Component({
 selector: 'pm-root',
 template: `
-            <div>
-            <h1>
-                {{pageTitle}}
-            </h1> 
-            <pm-products></pm-products>
-            </div>  
-            
+           <nav class='navbar navbar-expand navbar-light bg-light'>
+           <ul class='nav navbar-pills'>
+           <li>
+           <a class='nav-link' [routerLink] = "['/welcome']">Home</a></li>
+           <li> <a class='nav-link' [routerLink] = "['/products']">Product List</a></li>
+           </ul>
+           </nav>
+           <div class='container'>
+           <router-outlet></router-outlet>
+           </div>
+           <div>
+           this is test
+           </div>
 `
 })
 export class AppComponent{

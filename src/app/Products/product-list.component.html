@@ -31,14 +31,16 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor='let Product of Products'>
+                <tr *ngFor='let Product of FilteredProducts'>
                     <td>
                         <img *ngIf = 'showImage' [src] = 'Product.imageUrl' [title]= 'Product.description' [style.width.px] = 'imageWidth' > </td>
-                    <td>{{Product.productName | uppercase}}</td>
-                    <td>{{Product.productCode | lowercase}}</td>
+                    <td> <a [routerLink]= "['/products', Product.productId]"> {{Product.productName | uppercase}} </a></td>
+                    <td>{{Product.productCode | lowercase | convertToSpaces: '-'}}</td>
                     <td>{{Product.releaseDate}}</td>
                     <td>{{Product.price | currency}}</td>
-                    <td>{{Product.starRating}}</td>
+                    <td><pm-star [rating] = 'Product.starRating' (ratingClicked) = 'onRatingClicked($event)' >
+
+                    </pm-star></td>
                 </tr>
             </tbody>
         </table>

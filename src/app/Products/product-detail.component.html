@@ -1,0 +1,10 @@
+<div class='card' *ngIf = 'products'>
+    <div class='card-header'>
+      <table *ngFor='let p of products'>
+    <tr>
+        <td> {{p.productCode}}</td>
+    </tr>
+      </table>
+</div>
+
+<a [routerLink] = "['/products']">Back</a>
